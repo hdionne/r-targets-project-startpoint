@@ -32,7 +32,8 @@ The functions folder contains contains scripts to load functions, most often use
 ### Workspace
 The workspace folder contains descriptive code documents. It is most often used as scratch space for tracking stream-of-flow analysis, usually quarto documents. Files in here can created and deleted as they go out of date, and is primarily used as a tool to experiment with anlaysis that isn't settled enough to integrate into targets, or in generating figures / visual reports.
 ### _targets
-The _targets folder contains information about the targets pipeline. It is mostly untracked, with the exception of the ./_targets/meta/meta file, ### meta
+The _targets folder contains information about the targets pipeline. It is mostly untracked, with the exception of the ./_targets/meta/meta file.
+### meta
 The meta folder is mostly untracked. The meta/meta file hashes functions, inputs, and outputs of the targets pipeline, and is good for tracking how untracked objects change over time. 
 
 ### _targets.R
