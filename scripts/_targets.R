@@ -8,14 +8,16 @@ tar_config_set(
   store = './scripts/_targets/'
 )
 
+# List the libraries.
+libraries <- c()
+
 tar_option_set(
+  packages = libraries,
   seed = #TODO
 )
 # Tell targets that there is a folder of scripts defining functions, ./scripts/functions/ and that these scripts should be run.
 tar_source('./scripts/functions/')
 
-# List the libraries.
-libraries <- c()
 
 tar_plan(
   
