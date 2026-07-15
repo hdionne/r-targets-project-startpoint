@@ -18,7 +18,7 @@ tar_option_set(
 # Tell targets that there is a folder of scripts defining functions, ./scripts/functions/ and that these scripts should be run.
 tar_source('./scripts/functions/')
 
-
+# Place targets here
 tar_plan(
   
 )
