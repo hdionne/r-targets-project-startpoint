@@ -20,22 +20,22 @@ The following section shows the directory structure of this project. Not all dir
 └─ 📄[.gitmodules](#_targetsyaml)  
 
 ### [**Metatada**](#metatada)
-The Metadata folder contains information about this project, and is not tracked in git.
+The Metadata folder contains information about this project, meeting notes, etc, and is not tracked in git. The metadata folder and its contents should never be referenced by code.
 
 ### [**Raw-data**](#raw-data)
-The Raw-data folder contains the raw unmodified data which is used to complete the  project, and is not tracked in git.
+The Raw-data folder contains the raw unmodified data which is used to complete the  project, and is not tracked in git. Raw-data should never be overwritten, and any changes which need to be saved should be placed in either [processed-data](#processed-data) or [results](#results), with the possible exception of the raw-data/[submodules](#submodules) folder (if used).
 
-### [*Submodules*](#submodules)
+### [Submodules](#submodules)
 The submodules folder contains references or other information which is also tracked via git. This allows tracking the version of the submodules, and the option to update when changes are made to the references. The contents of this folder are not tracked.  See [.gitmodules](#gitmodules)
 
 ### [**Processed-data**](#processed-data)
-Processed data contains the processed, modified data which the project produces, that is not clean results. This folder is not tracked in git.
-### [**Results**](#results)
+Processed data contains the processed, modified data which the project produces, but that is not clean results. It also should contain any data which is manually created in response to the raw data, ie dictionaries to connect raw data to references. This folder is not tracked in git.
 
+### [**Results**](#results)
 The Results folder contains figures, table images, excel spreadsheets, or other information which is meant to be presented to others. This folder is not tracked in git.
 ### [**Scripts**](#scripts)
+The scripts folder contains scripts used in completing the analysis. Most files here are tracked by git.
 
-The scripts folder contains scripts used in completing the analysis. Most files here are tracked in git.
 ### [**Functions**](#functions)
 The functions folder contains contains scripts to load functions, most often used by _targets.R in workflow management. 
 
@@ -49,7 +49,7 @@ The _targets folder contains information about the targets pipeline. It is mostl
 The meta folder is mostly untracked. The meta/meta file hashes functions, inputs, and outputs of the targets pipeline, and is good for tracking how untracked objects change over time. 
 
 ### [**_targets.R**](#_targetsr)
-The _targets.R file orchestrates the targets workflow management. It is meant to store relatively static and computationally expensive parts of the analysis, making it easier to change parts of the pipeline and only have to rerun the parts that are changed. 
+The _targets.R file orchestrates the targets workflow management. It is meant to store relatively static and computationally expensive parts of the analysis, making it easier to change parts of the pipeline and only have to rerun the parts that are changed. In general, any code which is part of the tar_plan pipeline should be a function in a file within the [functions](#functions) folder.
 
 ### [_quarto.yml](#_quartoyml)
 The _quarto.yml file manages quarto document execution, so that all quarto documents will execute from the root directory (so all relative paths are consistent). It also manages the output, so that all quarto knit documents are output in the untracked ./results/ folder instead of the tracked ./scripts/ folder. 
@@ -58,7 +58,7 @@ The _quarto.yml file manages quarto document execution, so that all quarto docum
 The _targets.yml file manages targets workflow execution, describing where the workflow description is, and where the functions are that targets needs to execute the workflow.
 
 ### [**.gitignore**](#gitignore)
-Gitignore controls which files are available and which files are not. 
+Gitignore controls which files are tracked and which files are not. Pay extra attention when adding and committing changes to workflows that a) scripts which should be tracked are tracked, and b) data or scripts which should not be tracked are not tracked. Failure to properly maintain the .gitignore can result in file loss or leaking of data.
 
 ### [.gitmodules](#gitmodules)
 .gitmodules tracks the names of the submodules within this project, and their versions. As the submodules are updated, the .gitmodules document is updated. As such, this file should be tracked so the version of the reference is clear.
