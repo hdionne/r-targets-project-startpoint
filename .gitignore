@@ -1,0 +1,34 @@
+# gitignore
+
+# Ignore R project files.
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Ignore all files and folders
+/*
+
+# Include git files (.gitignore and if using git submodules, .gitmodules
+!/.gitignore
+!/.gitmodules
+
+# Include _quarto.yml and _targets.yml, since these are necessary for targets and quarto to use the proper directories.
+!/_quarto.yml
+!/_targets.yml
+
+# Include README.md
+!/README.md
+
+# Include scripts folder and contents
+!/scripts/
+!/scripts/**
+
+# Don't include .Rproj files, the .Rproj.user folder, and the .Rhistory file.
+scripts/**/*.Rproj
+scripts/**/.Rproj.user/
+scripts/**/.Rhistory
+# except for the "meta" file in the "meta" folder which contains file hashes, so we can see how the files update.
+scripts/**/_targets/**
+!/scripts/_targets/meta/
+!/scripts/_targets/meta/meta
