@@ -8,8 +8,8 @@ The following section shows the directory structure of this project. Not all dir
 ├─ 📁[**processed-data**](#processed-data)  
 ├─ 📁[**results**](#results)  
 ├─ 📁[**scripts**](#scripts)  
-│ &nbsp; ├─ 📁[**functions**](#functions)  
 │ &nbsp; ├─ 📁[**workspace**](#workspace)  
+│ &nbsp; ├─ 📁[**functions**](#functions)  
 │ &nbsp; ├─ 📁[**_targets**](#targets)  
 │ &nbsp; │ &nbsp; └─ 📁[**meta**](#meta)  
 │ &nbsp; │ &nbsp; &nbsp; &nbsp; &nbsp; └─ 📄**meta**  
@@ -36,11 +36,11 @@ The Results folder contains figures, table images, excel spreadsheets, or other 
 ### [**Scripts**](#scripts)
 The scripts folder contains scripts used in completing the analysis. Most files here are tracked by git.
 
-### [**Functions**](#functions)
-The functions folder contains contains scripts to load functions, most often used by _targets.R in workflow management. 
-
 ### [**Workspace**](#workspace)
 The workspace folder contains descriptive code documents. It is most often used as scratch space for tracking stream-of-flow analysis, usually quarto documents. Files in here can created and deleted as they go out of date, and is primarily used as a tool to experiment with anlaysis that isn't settled enough to integrate into targets, or in generating figures / visual reports.
+
+### [**Functions**](#functions)
+The functions folder contains contains scripts to load functions, most often used by _targets.R in workflow management. 
 
 ### [**_targets**](#_targets)
 The _targets folder contains information about the targets pipeline. It is mostly untracked, with the exception of the ./_targets/meta/meta file.
