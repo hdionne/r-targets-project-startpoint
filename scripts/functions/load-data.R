@@ -6,14 +6,13 @@ load_outcome_sheet <- function(wb, sheet) {
     cols = col2int('A'):col2int('L')
   )
   
-  colnames(df) <- c('outcome', 'timepoint', 'description', 'child_yes', 'adult_yes', 'yes_calc-total', 'event_input-total', 'child_no', 'adult_no', 'no_calc-total', 'calc-total', 'input-total')
+  colnames(df) <- c('timepoint', 'description', 'child_yes', 'adult_yes', 'yes_calc-total', 'yes_input-total', 'child_no', 'adult_no', 'no_calc-total', 'no_input-total', 'calc-total', 'input-total')
   
   return(df)
 }
 
 
 load_outcome_df <- function(wb) {
-  browser()
   sheets_to_load <- c(
     'opioid_use' = 'TPIAT Opioid Pop Method',
     'hospitalization' = 'TPIAT Hospitalization PM',
@@ -46,11 +45,23 @@ load_outcome_a1c_sheet <- function(wb, start_col) {
 
 load_outcome_a1c_df <- function(wb) {
   start_cols <- as.list(col2int(c('C', 'G', 'K', 'O', 'S', 'W'))) %>% 
-    setNames(c('a1c_<5.7', 'a1c_5.7-6.4', 'a1c_6.5-6.9', 'a1c_7.0-7.9', 'a1c_8.0-8.9', 'a1c_>=9.0'))
+    setNames(c('<5.7', '5.7-6.4', '6.5-6.9', '7.0-7.9', '8.0-8.9', '>=9.0'))
   dfs <- map(start_cols, \(x) load_outcome_a1c_sheet(wb, x))
   
-  df <- bind_rows(dfs, .id = 'a1c')
+  df <- bind_rows(dfs, .id = 'event')
+  
+  df$outcome <- 'a1c'
   
   return(df)
 }
 
+load_demographics <- function(wb) {
+  df <- wb_read(
+    wb,
+    sheet = 'TPIAT Demographics',
+    rows = c(14, 16:18, 20:25, 27:28, 30:37, 39:47),
+    cols = 1:4
+  )
+  
+  return(df)
+}

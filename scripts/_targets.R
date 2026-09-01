@@ -11,7 +11,8 @@ tar_config_set(
 # List the libraries.
 libraries <- c(
   'tidyverse',
-  'openxlsx2'
+  'openxlsx2',
+  'broom'
 )
 
 tar_option_set(
@@ -26,5 +27,12 @@ tar_plan(
   wb_file = './raw-data/TPIAT_Peds_Data.xlsx',
   wb = wb_load(wb_file),
   outcome_df_raw = load_outcome_df(wb),
-  outcome_a1c_df_raw = load_outcome_a1c_df(wb)
+  outcome_a1c_df_raw = load_outcome_a1c_df(wb),
+  outcome_df = prep_outcome_df(outcome_df_raw, outcome_a1c_df_raw),
+  outcome_wilson_tests = calc_wilson_tests(outcome_df),
+  demo_df_raw = load_demographics(wb),
+  demo_df = prep_demographics(demo_df_raw),
+  demo_chisq_tests = calc_demo_chisq_tests(demo_df),
+  within_outcome_chisq_tests = calc_outcome_timepoint_chisq_tests(outcome_df),
+  between_outcome_chisq_tests = calc_outcome_age_chisq_tests(outcome_df)
 )
