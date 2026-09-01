@@ -1,0 +1,12 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+wb_file|stem|9556cf9d9b89e689|04f55f57f84d67be|2c530c1562a7fbd1|241703231||t20696.7874975017s|s83b|83|rds|local|vector|||0.485||
+wb|stem|a33943a760986cb5|42cd838ceee05571|6efffa84a8aa77c4|1482670663||t20697.4994306013s|s167095b|167095|rds|local|vector|||0.187||
+outcome_a1c_df_raw|stem|e0d14c910d8d4fb0|968f4f88fe0e15b9|d29cc0780fba7fb1|-138274544||t20697.5457973614s|s559b|559|rds|local|vector|||0.032|NAs introduced by coercion. NAs introduced by coercion. NAs introduced by coercion|
+outcome_df_raw|stem|e9543a0da2944bcc|be6426787516d0bc|3f9aa2deb05c7f35|-1003902370||t20697.5512316221s|s589b|589|rds|local|vector|||0.015||
+chisq_with_fisher|function|aa14bdc81a65f8cb
+wilson_tests|function|18b4ad1fec95b181
+load_outcome_sheet|function|3ef344d67a66e226
+libraries|object|781133b26c356c9a
+load_outcome_a1c_sheet|function|a196e864ba98b779
+load_outcome_df|function|84001f76a6745c93
+load_outcome_a1c_df|function|61aab5df1796a05b
