@@ -1,4 +1,16 @@
 # Project
+
+## Project Development
+This section shows options for further development of the project reference.
+
+### Image tracking
+One significant problem with current projects is the management of figures. As analysis is run, figures can change. 
+Quite often I have had a situation where I create a figure for someone, then ~ 6 months later when they want to include it in a paper, the figure has changed due to tweaks to preprocessing/normalization and the like. When this happens, it's important to understand what has changed and what the consequences are.
+Tracking images in r {targets} and appending 8-digits of the figure hash to the end of the figure name will allow tracking changes of images over time. It will also allow for seeing when figures have changed. 
+
+### Organizing {targets} meta
+Applying a pre-commit-hook to sort the {targets} meta file into a consistent format to make it easier to follow differences would be very helpful for tracking changes to a target across time.
+
 ## Project structure
 The following section shows the directory structure of this project. Not all directories and files are tracked by git, but some are referenced by files which are tracked (most often raw-data, processed-data, and results). Files / Folders that are labeled in bold make up the core of this project, and should be paid special attention.
 
